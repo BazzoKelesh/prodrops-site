@@ -13,7 +13,7 @@ function initializeForm() {
   const signupWrapper = document.querySelector(".signup-wrapper");
   const errorText = document.querySelector("#w-node-_76620bad-c458-8fe3-a573-c69475ba2721-4a77bf3e");
   const submitButton = document.querySelector("#partner-form-submit");
-  const api = "ttps://prodrops-api-production.up.railway.app/v1";
+  const api = "https://prodrops-api-production.up.railway.app/v1";
   const successModal = document.querySelector("#form-success-wrapper");
   let isSubmitting = false;
   var minAge13 = ["US"];
@@ -125,12 +125,12 @@ function initializeForm() {
       firstName: {
         minlength: 3,
         maxlength: 20,
-        pattern: /^[a-zA-Z]*$/,
+        pattern: /^[a-zA-Z ]*$/,
       },
       lastName: {
         minlength: 3,
         maxlength: 20,
-        pattern: /^[a-zA-Z]*$/,
+        pattern: /^[a-zA-Z ]*$/,
       },
       dateOfBirth: {
         minAge: !Object.keys(window.geoInfo || {}).length || minAge16.includes(window.geoInfo.country_code) ? 16 : minAge13.includes(window.geoInfo.country_code) ? 13 : 0,
@@ -140,7 +140,7 @@ function initializeForm() {
         required: true,
         minlength: 4,
         maxlength: 20,
-        pattern: /^[\u0000-\u0019\u0021-\uFFFF]+$/,
+        pattern: /^[a-zA-Z0-9]*$/,
         remote: {
           url: api + `/validations/username`,
           type: "POST",
@@ -199,12 +199,13 @@ function initializeForm() {
     },
     messages: {
       firstName: {
-        pattern: "Only characters, no spaces",
+        pattern: "Only letters allowed",
       },
       lastName: {
-        pattern: "Only characters, no spaces",
+        pattern: "Only letters allowed",
       },
       username: {
+        pattern: "Only letters and numbers are allowed",
         remote: "This username is not available",
       },
       email: {
