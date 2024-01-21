@@ -1,0 +1,20 @@
+.input-checkbox-custom-wrapper {
+  border-color: white;
+}
+.input-checkbox-custom-wrapper .pf-game-checkbox-box {
+  background-color: transparent;
+  border-color: white;
+}
+.input-checkbox-custom.w-checkbox-input:checked + .input-checkbox-custom-wrapper {
+  border-color: var(--primary-1);
+}
+.input-checkbox-custom.w-checkbox-input:checked + .input-checkbox-custom-wrapper .pf-game-checkbox-box {
+  background-color: var(--primary-1);
+  border-color: var(--primary-1);
+}
+.input-checkbox-custom-wrapper .pf-game-checkbox-box img {
+  display: none;
+}
+.input-checkbox-custom.w-checkbox-input:checked + .input-checkbox-custom-wrapper .pf-game-checkbox-box img {
+  display: block;
+}
